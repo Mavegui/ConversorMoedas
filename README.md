@@ -30,7 +30,7 @@ Veja arquivos usados e criado como orientação para realização do projeto.
 
 - Clone o repositório.
   ```plaintext
-     
+     https://github.com/Mavegui/ConversorMoedas.git
   ```
 - Instale o ambiente virtual e execute ele.
   ```plaintext
@@ -63,17 +63,18 @@ Veja arquivos usados e criado como orientação para realização do projeto.
 ├── arquivos
 │   ├── enunciado.pdf
 │   ├── Trello_Scrum.png
+│   └── Trabalho_projeto_de_software.pdf
 ├── conversormoedas_app
 │   ├── migrations
 │   ├── static
 │   │   ├── CSS
-│   │   │   ├── style.css
+│   │   │   └── style.css
 │   │   ├── js
-│   │   │   ├── conversor.js
+│   │   │   └── conversor.js
 │   ├── templates
 │   │   ├── conversor
 │   │   │   ├── index.html
-│   │   │   ├── layout.html
+│   │   │   └── layout.html
 │   ├── admin.py
 │   ├── apps.py
 │   ├── forms.py
