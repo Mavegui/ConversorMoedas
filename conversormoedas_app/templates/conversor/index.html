@@ -1,0 +1,88 @@
+{% extends "conversor/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Conversor de Moedas - Home
+{% endblock title %}
+
+{% block content %}
+<section class="container my-5 px-3">
+    <h1 class="mb-4 text-center">Conversor de Moedas</h1>
+    <p class="text-center">Escolha as moedas e insira o valor que deseja converter:</p>
+
+    {% if erro %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ erro }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+    
+    <form action="{% url 'conversor_moedas' %}" method="post" class="mb-4">
+        {% csrf_token %}
+    
+        <fieldset class="border p-4 rounded-3 shadow-sm">
+            <legend class="float-none w-auto px-3 fw-semibold text-primary">Conversão</legend>
+
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6">
+                    {{ conversor_form.valor.label_tag }}
+                    {{ conversor_form.valor }}
+                    {% if conversor_form.valor.errors %}
+                        <div class="text-danger small">{{ conversor_form.valor.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="col-12 col-md-6">
+                    {{ conversor_form.moeda_entrada.label_tag }}
+                    {{ conversor_form.moeda_entrada }}
+                </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6">
+                    {{ conversor_form.moeda_saida.label_tag }}
+                    {{ conversor_form.moeda_saida }}
+                </div>
+                <div class="col-12 col-md-6">
+                    {{ conversor_form.resultado.label_tag }}
+                    {{ conversor_form.resultado }}
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" name="converter" class="btn btn-primary px-4">Converter</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <form action="{% url 'calculo_desconto' %}" method="post">
+        {% csrf_token %}
+        
+        <fieldset class="border p-4 rounded-3 shadow-sm">
+            <legend class="float-none w-auto px-3 fw-semibold text-primary">Calculadora de Descontos (%)</legend>
+    
+            <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6">
+                    {{ desconto_form.porcentagem_desconto.label_tag }}
+                    {{ desconto_form.porcentagem_desconto }}
+                    {% if desconto_form.porcentagem_desconto.errors %}
+                        <div class="text-danger small">{{ desconto_form.porcentagem_desconto.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="col-12 col-md-6">
+                    {{ desconto_form.valor_com_desconto.label_tag }}
+                    {{ desconto_form.valor_com_desconto }}
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" name="calcular_desconto" class="btn btn-primary px-4">Calcular</button>
+            </div>
+        </fieldset>
+    </form>
+
+</section>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'js/conversor.js' %}"></script>
+{% endblock %}
