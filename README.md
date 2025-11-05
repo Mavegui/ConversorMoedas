@@ -11,7 +11,7 @@ Com objetivo de realizar a estruturação desde a fase inicial abordando todas a
 ## Tecnologias utilizadas
 - **Django**  
 - **Bootstrap**  
-- **Frankfurter API**
+- **[Frankfurter API](https://frankfurter.dev/)**
 - **Scrum**    
 
 ---
