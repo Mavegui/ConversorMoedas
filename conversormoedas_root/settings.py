@@ -2,10 +2,9 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# FINALIDADE ESTUDANTIL, USE ENV E ENV.EXAMPLE PARA SEGURANÇA!
 SECRET_KEY = 'django-insecure-9zxht_a1f^o(0_q+m20j6(oq^@3avdt4sjzy97l49y_jusdk&m'
-
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
